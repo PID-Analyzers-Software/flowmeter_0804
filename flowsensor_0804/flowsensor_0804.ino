@@ -40,7 +40,7 @@ Adafruit_ADS1115 ads1115;
 
 
 #ifdef USE_SSD1327_DISPLAY
-U8G2_SSD1327_MIDAS_128X128_F_4W_SW_SPI u8g2(U8G2_R0, /* clock=*/ 21, /* data=*/ 17, /* cs=*/ 16, /* dc=*/ 19, /* reset=*/ 18);
+U8G2_SSD1327_MIDAS_128X128_F_4W_SW_SPI u8g2(U8G2_R0, /* clock=*/ 27, /* data=*/ 33, /* cs=*/ 15, /* dc=*/ 32, /* reset=*/ 21);
 #endif
 
 SleepTimer g_sleepTimer;
@@ -208,9 +208,8 @@ void IRAM_ATTR dummyTouchISR() {}
 void setup() {
     Serial.begin(115200);
     delay(500);
-    pinMode(5, OUTPUT);
-    gpio_hold_dis(GPIO_NUM_5);
-    digitalWrite(5, HIGH);
+    pinMode(19, OUTPUT);
+    digitalWrite(19, LOW);
 
     //esp_sleep_enable_ext1_wakeup(0x8004, ESP_EXT1_WAKEUP_ANY_HIGH);
     esp_sleep_enable_ext0_wakeup(GPIO_NUM_12, LOW);
