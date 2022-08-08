@@ -102,13 +102,9 @@ public:
 		
 		if(passedMillis / 1000 >= m_intervalArray[m_selectedIndex])
 		{
-	    digitalWrite(5, LOW);
-            delay(1000);
-	    digitalWrite(5, HIGH);
+ 	   
+	    digitalWrite(19, HIGH);
 	    delay(100);
-	    digitalWrite(5, LOW);
-
-            gpio_hold_en(GPIO_NUM_5);
             gpio_deep_sleep_hold_en();
             Serial.println("SleepTimer deep_sleep!");
 			Serial.flush();
